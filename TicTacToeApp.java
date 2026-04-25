@@ -1,19 +1,20 @@
-import java.util.Scanner;
-
-public class TicTacToeApp {
-
+class Main {
     public static void main(String[] args) {
-        int slot = getUserSlot();
-        System.out.println("Slot entered: " + slot);
+        int slot = 5; // sample input
+
+        int row = getRowFromSlot(slot);
+        int col = getColFromSlot(slot);
+
+        System.out.println("Slot: " + slot);
+        System.out.println("Row: " + row);
+        System.out.println("Column: " + col);
     }
 
-    // UC3: take input
-    static int getUserSlot() {
-        Scanner sc = new Scanner(System.in);
+    static int getRowFromSlot(int slot) {
+        return (slot - 1) / 3;
+    }
 
-        System.out.print("Enter slot (1-9): ");
-        int slot = sc.nextInt();
-
-        return slot;
+    static int getColFromSlot(int slot) {
+        return (slot - 1) % 3;
     }
 }
