@@ -1,30 +1,25 @@
 public class TicTacToeApp {
 
-    static char[][] board = {
-        {'-', '-', '-'},
-        {'-', '-', '-'},
-        {'-', '-', '-'}
-    };
+    static char[][] board = new char[3][3];
 
     public static void main(String[] args) {
-        int row = 1;
-        int col = 1;
 
-        System.out.println(isValidMove(row, col));
+        // initialize board
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j] = '-';
+            }
+        }
+
+        // sample move (already validated)
+        placeMove(0, 0, 'X');
+
+        // print updated cell (as shown in PDF)
+        System.out.println(board[0][0]);
     }
 
-    static boolean isValidMove(int row, int col) {
-
-        // check bounds
-        if (row < 0 || row > 2 || col < 0 || col > 2) {
-            return false;
-        }
-
-        // check empty cell
-        if (board[row][col] != '-') {
-            return false;
-        }
-
-        return true;
+    // UC6 method
+    static void placeMove(int row, int col, char symbol) {
+        board[row][col] = symbol;
     }
 }
